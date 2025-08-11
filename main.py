@@ -1,4 +1,6 @@
 from stats import num_words, char_count, pairs
+import sys
+
 
 def get_book_text(f):
     with open(f) as g:
@@ -20,8 +22,11 @@ def artwork(url):
 
 
 
-def main():
-    artwork("books/frankenstein.txt")
+def main(args):
+    if len(args) > 1:
+        artwork(args[1]) 
+    else:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)   
 
-main()
-
+main(sys.argv)
